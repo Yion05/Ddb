@@ -42,3 +42,47 @@
                 },
             });
         });
+
+        // Image Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.getElementById('closeModal');
+            
+            // Add click event to all slider images
+            const sliderImages = document.querySelectorAll('.project-slider .swiper-slide img');
+            
+            sliderImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // Set modal image source and alt text
+                    modalImage.src = this.src;
+                    modalImage.alt = this.alt;
+                    
+                    // Show modal
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Close modal functions
+            closeModal.addEventListener('click', closeModalFunction);
+            
+            // Close when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalFunction();
+                }
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModalFunction();
+                }
+            });
+            
+            function closeModalFunction() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        });
