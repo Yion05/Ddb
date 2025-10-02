@@ -1,0 +1,21 @@
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/334155/f8fafc?text=Modern+Construction+Site');
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #2563eb !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: #2563eb !important;
+        }
